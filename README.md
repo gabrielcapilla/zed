@@ -1,10 +1,10 @@
 # zed
 
-![Alt text](.ignore/preview.gif)
-
 "zed" is a command line tool written in `Nim👑` that uses fzf (_Fuzzy Finder_) to allow the deletion of folders and files in a simple and efficient way.
 
 With "zed", you can browse through your files and directories using an interactive interface and select multiple items for deletion by simply pressing the __TAB__ key. This functionality makes deleting files and folders faster and more convenient than traditional methods.
+
+![Alt text](.ignore/preview.gif)
 
 ## Installation
 
