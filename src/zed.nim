@@ -17,27 +17,27 @@ proc deleteItems(items: seq[string]) =
     try:
       if dirExists(item):
         removeDir(item)
-        echo "Directory deleted: ", item
+        stdout.writeLine "Directory deleted: ", item
       else:
         removeFile(item)
-        echo "File deleted: ", item
+        stdout.writeLine "File deleted: ", item
     except OSError:
-      echo "Error deleting item: ", item
+      stdout.writeLine "Error deleting item: ", item
 
 proc main() =
   let currentDir: string = getCurrentDir()
   let selectedItems: seq[string] = fzfSelect(currentDir)
   if selectedItems.len > 0:
-    echo "Selected items:"
+    stdout.writeLine "Selected items:"
     for item in selectedItems:
-      echo "👉 ", item
-    echo "\nDo you want to delete these items? (y/n)"
+      stdout.writeLine "👉 ", item
+    stdout.write "\nDo you want to delete these items? (y/n) "
     let response: string = readLine(stdin)
     if response.toLowerAscii() == "y":
       deleteItems(selectedItems)
     else:
-      echo "Items not deleted."
+      stdout.write "Items not deleted."
   else:
-    echo "No items selected."
+    stdout.write "No items selected."
 
 main()
